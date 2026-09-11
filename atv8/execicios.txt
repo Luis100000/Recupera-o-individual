@@ -1,0 +1,44 @@
+1- Ao digitar uma URL na barra de endereços e pressionar Enter. 
+Ao clicar em um link (hipertexto) em um site. O navegador envia uma requisição GET para o servidor para acessar o novo endereço clicado.
+
+2-Envio de formulários de cadastro ou login: Quando você preenche seus dados (como nome, e-mail e senha) para criar uma conta em um site ou digitar suas credenciais para entrar. 
+O POST é usado aqui porque os dados vão escondidos no corpo da requisição, impedindo que informações sensíveis apareçam expostas na URL do navegador.
+Publicação de conteúdo (posts, comentários ou upload de arquivos): Quando você escreve um texto em uma rede social, deixa um comentário em um blog ou faz o upload de uma foto de perfil.
+. O servidor recebe esses dados e os armazena no banco de dados, gerando um novo registro.
+
+3-O código de status 404 Not Found (Não Encontrado) significa que o servidor onde o site está hospedado não conseguiu encontrar a página ou o arquivo que você tentou acessar.
+
+4- Quando um servidor responde com o código 201 Created, significa que a requisição foi bem-sucedida e um novo recurso foi criado no servidor.
+
+
+
+Código Escrito:
+POST /api/v1/avisos HTTP/1.1
+Host: sistema-escolar.com.br
+Authorization: Bearer xyz123456token789
+Content-Type: application/json
+Content-Length: 218
+
+{
+  "titulo": "Reunião de Pais e Mestres",
+  "conteudo": "Convidamos todos os responsáveis para a nossa primeira reunião do trimestre, onde discutiremos o desempenho pedagógico dos alunos.",
+  "data_evento": "2026-09-18T19:00:00Z",
+  "destinatarios": "pais_e_responsaveis",
+  "turma_id": "7A"
+}
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Fri, 11 Sep 2026 12:27:00 GMT
+
+{
+  "status": "sucesso",
+  "mensagem": "Aviso cadastrado com sucesso!",
+  "dados": {
+    "id": 9482,
+    "titulo": "Reunião de Pais e Mestres",
+    "criado_em": "2026-09-11T12:27:00Z",
+    "status_envio": "agendado"
+  }
+}
+

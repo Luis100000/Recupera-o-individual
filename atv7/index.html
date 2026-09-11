@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 1</title>
+</head>
+<body>
+
+    <button id="meuBotao">Clique Aqui</button>
+
+    <script>
+      
+        const botao = document.querySelector('#meuBotao');
+
+       
+        botao.addEventListener('click', () => {
+            alert('Olá! Você clicou no botão com sucesso.');
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Aviso</title>
+</head>
+<body>
+  <h1>Cadastro rápido de aviso</h1>
+
+  <input type="text" id="aviso" placeholder="Digite o aviso">
+  <button id="botao">Adicionar</button>
+
+  <ul id="lista"></ul>
+
+  <script>
+    const campoAviso = document.querySelector('#aviso');
+    const botao = document.querySelector('#botao');
+    const lista = document.querySelector('#lista');
+
+    botao.addEventListener('click', () => {
+      const texto = campoAviso.value.trim();
+
+      if (texto === '') {
+        alert('Digite um aviso antes de adicionar.');
+        return;
+      }
+
+      const item = document.createElement('li');
+      item.textContent = texto;
+      lista.appendChild(item);
+
+      campoAviso.value = '';
+      campoAviso.focus();
+    });
+  </script>
+</body>
+</html>

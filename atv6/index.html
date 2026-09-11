@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Avisos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f8f8f8;
+    }
+
+    .card {
+      background-color: white;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2b6cb0;
+      color: white;
+    }
+
+    .botao {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 14px;
+      background-color: #2b6cb0;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Avisos da Escola</h1>
+
+  <div class="card">
+    <h2>Reunião de responsáveis</h2>
+    <p>Dia 20 às 19h na sala multiuso.</p>
+  </div>
+
+  <div class="card">
+    <h2>Prova de Matemática</h2>
+    <p>Conteúdo: equações e funções.</p>
+    <a href="#" class="botao">Ver detalhes</a>
+  </div>
+
+  <h2>Controle de registros</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Categoria</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Reunião de responsáveis</td>
+      <td>Geral</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Prova de Matemática</td>
+      <td>Avaliação</td>
+    </tr>
+  </table>
+</body>
+</html>
