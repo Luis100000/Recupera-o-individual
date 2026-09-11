@@ -1,0 +1,36 @@
+{
+  "titulo": "Entrega de boletins",
+  "conteudo": "A entrega dos boletins do 2º bimestre ocorrerá nesta sexta-feira, a partir das 14h.",
+  "data": "2026-09-11",
+  "destinatarios": "Resposáveis"
+}
+
+
+{
+  "titulo": "Exercícios de Álgebra",
+  "disciplina": "Matemática",
+  "descricao": "Resolver os exercícios de 1 a 5 da página 42 do livro didático.",
+  "data_entrega": "2026-09-18",
+  "concluida": false
+}
+
+POST /login HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "email": "ana@escola.com",
+  "senha": "senhaSegura123"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "mensagem": "Login efetuado com sucesso",
+  "token": "xyz123456tokenDeAcesso",
+  "usuario": {
+    "nome": "Ana Silva",
+    "perfil": "aluna"
+  }
+}

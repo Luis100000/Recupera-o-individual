@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Integração</title>
+</head>
+<body>
+
+    <h2>1. Enviar Usuário</h2>
+    <input type="text" id="user" placeholder="Nome">
+    <button onclick="addU()">Enviar</button>
+    <p id="r1"></p>
+
+    <h2>2. Enviar Tarefa</h2>
+    <input type="text" id="task" placeholder="Tarefa">
+    <button onclick="addT()">Enviar</button>
+    <p id="r2"></p>
+
+    <h2>3. Listar Avisos</h2>
+    <button onclick="getA()">Listar</button>
+    <ul id="l3"></ul>
+
+    <h2>4. Testar Erro</h2>
+    <button onclick="getE()">Testar</button>
+    <p id="r4"></p>
+
+    <h2>5. Form Completo</h2>
+    <form id="f5">
+        <input type="text" id="n5" placeholder="Nome" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="r5"></p>
+
+    <script>
+        async function addU() {
+            const res = await fetch('http://localhost:3000/usuarios', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome: document.getElementById('user').value })
+            });
+            const d = await res.json();
+            document.getElementById('r1').textContent = d.msg;
+        }
+
+        async function addT() {
+            const res = await fetch('http://localhost:3000/tarefas', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tarefa: document.getElementById('task').value })
+            });
+            const d = await res.json();
+            document.getElementById('r2').textContent = d.msg;
+        }
+
+        async function getA() {
+            const res = await fetch('http://localhost:3000/avisos');
+            const d = await res.json();
+            const l = document.getElementById('l3');
+            l.innerHTML = '';
+            d.forEach(a => l.innerHTML += `<li>${a.titulo}</li>`);
+        }
+
+        async function getE() {
+            try {
+                await fetch('http://localhost:3000/avisos');
+                document.getElementById('r4').textContent = "Online";
+            } catch (e) {
+                document.getElementById('r4').textContent = "Erro: Servidor desligado";
+            }
+        }
+
+        document.getElementById('f5').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            try {
+                const res = await fetch('http://localhost:3000/usuarios', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome: document.getElementById('n5').value })
+                });
+                const d = await res.json();
+                document.getElementById('r5').textContent = "Sucesso: " + d.msg;
+            } catch (err) {
+                document.getElementById('r5').textContent = "Erro de conexão";
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
